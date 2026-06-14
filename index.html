@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Stella Atlas — 星図儀</title>
+  <meta name="description" content="実データによる3D星空。8,900の恒星と88星座をブラウザで。" />
+</head>
+<body>
+  <div id="app"></div>
+  <div id="loading"><div class="loading-inner"><div class="loading-star"></div><p id="loading-label">起動中…</p></div></div>
+  <header id="title"><h1>Stella Atlas</h1><p>星図儀 — 8,922の実恒星と88星座</p></header>
+  <div id="controls-bar">
+    <input id="search" type="text" list="constellation-list" placeholder="星座を検索（例: オリオン座）" autocomplete="off" />
+    <datalist id="constellation-list"></datalist>
+    <button id="toggle-lines" class="toggle active" type="button">星座線</button>
+    <button id="toggle-labels" class="toggle active" type="button">星座名</button>
+  </div>
+  <aside id="info-panel" class="hidden">
+    <button id="info-close" type="button">×</button>
+    <h2 id="info-name"></h2>
+    <p id="info-sub"></p>
+    <dl id="info-rows"></dl>
+  </aside>
+  <button id="back-button" class="hidden" type="button">← 星空に戻る</button>
+  <div id="time-bar">
+    <button class="tb-jump" id="tb-prev" title="−1日">◀</button>
+    <div class="tb-speeds">
+      <button class="tb-speed active" data-speed="0">⏸</button>
+      <button class="tb-speed" data-speed="1">×1</button>
+      <button class="tb-speed" data-speed="60">×60</button>
+      <button class="tb-speed" data-speed="3600">×1h</button>
+      <button class="tb-speed" data-speed="86400">×1d</button>
+    </div>
+    <input id="tb-slider" type="range" min="0" max="1439" step="1" value="0" />
+    <button class="tb-jump" id="tb-next" title="+1日">▶</button>
+    <span id="tb-datetime"></span>
+  </div>
+  <footer id="hint">ドラッグで見回す ／ ホイールでズーム ／ 星をクリックで接近</footer>
+  <script type="module" src="/src/main.ts"></script>
+</body>
+</html>
